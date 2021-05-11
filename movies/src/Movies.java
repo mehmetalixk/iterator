@@ -12,8 +12,13 @@ public class Movies {
         ArrayList<List<String>> hbo = csvToArrayList("./movies/data/hbo.csv");
         TreeMap<String, TreeMap<String, String>> hulu = csvToTree("./movies/data/stream.csv");
 
+        fixDataset(hulu);
+
+    }
+
+    public static void fixDataset(TreeMap<String, TreeMap<String, String>> dataset) throws IOException {
         String fName = null;
-        for (Map.Entry<String, TreeMap<String, String>> e : hulu.entrySet()) {
+        for (Map.Entry<String, TreeMap<String, String>> e : dataset.entrySet()) {
 
             if(e.getValue().get("Disney+").equals("1"))
                 fName = "Disney+";
@@ -26,7 +31,6 @@ public class Movies {
 
             writeToCSV(e.getValue(), fName);
         }
-
     }
 
     public static void writeToCSV(TreeMap<String, String> entry, String fName) throws IOException {
