@@ -1,7 +1,6 @@
 import com.opencsv.CSVReader;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
+import java.io.*;
 import java.util.*;
 
 public class Movies {
@@ -9,13 +8,32 @@ public class Movies {
     public static void main(String ... args) throws Exception {
 
         MovieList<Movie> movies = new MovieList<>();
-        HashMap<String, HashMap<String, String >> netflix = csvToHashMap("/home/mehmetalix/Downloads/data/netflix.csv");
+        HashMap<String, HashMap<String, String >> netflix = csvToHashMap("./movies/data/netflix.csv");
+        ArrayList<List<String>> hbo = csvToArrayList("./movies/data/hbo.csv");
+        TreeMap<String, TreeMap<String, String>> hulu = csvToTree("./movies/data/stream.csv");
 
-        ArrayList<List<String>> hbo = csvToArrayList("/home/mehmetalix/Downloads/data/hbo.csv");
+        String fName = null;
+        for (Map.Entry<String, TreeMap<String, String>> e : hulu.entrySet()) {
 
-        TreeMap<String, TreeMap<String, String>> hulu = csvToTree("/home/mehmetalix/Downloads/data/stream.csv");
+            if(e.getValue().get("Disney+").equals("1"))
+                fName = "Disney+";
+            else if(e.getValue().get("Netflix").equals("1"))
+                fName = "Netflix";
+            else if(e.getValue().get("Hulu").equals("1"))
+                fName = "Hulu";
+            else if(e.getValue().get("Prime Video").equals("1"))
+                fName = "PrimeVideo";
 
-        System.out.println(hulu);
+            writeToCSV(e.getValue(), fName);
+        }
+
+    }
+
+    public static void writeToCSV(TreeMap<String, String> entry, String fName) throws IOException {
+        FileWriter csvWriter = new FileWriter("./movies/data/" + fName + "_fixed.csv", true);
+        csvWriter.append(String.join(",", entry.values()));
+        csvWriter.append("\n");
+        csvWriter.close();
     }
 
     public static HashMap<String, HashMap<String, String>> csvToHashMap(String path) throws Exception {
@@ -35,8 +53,7 @@ public class Movies {
     public static ArrayList<List<String>> csvToArrayList(String path) throws Exception {
         ArrayList<List<String>> dataset = new ArrayList<>();
         CSVReader csvReader = new CSVReader(new FileReader(path));
-        String[] row, firstRow;
-        firstRow = csvReader.readNext();
+        String[] row;
         while ((row = csvReader.readNext()) != null){
             dataset.add(Arrays.asList(row));
         }
