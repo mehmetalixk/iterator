@@ -1,6 +1,8 @@
-import java.util.Iterator;
+package IteratorPattern.Movies;
 
-public class MovieList<Movie> implements Iterable<Movie> {
+import IteratorPattern.iterators.MovIterator;
+
+public class MovieList<Movie> {
     Node<Movie> head, tail;
 
     // add new Element at tail of the linked list in O(1)
@@ -27,9 +29,8 @@ public class MovieList<Movie> implements Iterable<Movie> {
         return tail;
     }
 
-    // return Iterator instance
-    public Iterator<Movie> iterator()
+    public MovIterator<Movie> iterator()
     {
-        return new MovIterator<Movie>(this);
+        return new MoviesIterator<>(this);
     }
 }

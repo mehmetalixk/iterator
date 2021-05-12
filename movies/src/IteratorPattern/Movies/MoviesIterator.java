@@ -1,11 +1,12 @@
-import java.util.Iterator;
+package IteratorPattern.Movies;
 
+import IteratorPattern.iterators.MovIterator;
 
-public class MovIterator<Movie> implements Iterator<Movie> {
+public class MoviesIterator<Movie> implements MovIterator<Movie> {
+
     Node<Movie> current;
 
-    // initialize pointer to head of the list for iteration
-    public MovIterator(MovieList<Movie> list)
+    public MoviesIterator(MovieList<Movie> list)
     {
         current = list.getHead();
     }
@@ -17,7 +18,7 @@ public class MovIterator<Movie> implements Iterator<Movie> {
     }
 
     // return current movie and update pointer
-    public Movie next()
+    public Movie getNext()
     {
         Movie movie = current.getMovie();
         current = current.getNext();
@@ -25,7 +26,7 @@ public class MovIterator<Movie> implements Iterator<Movie> {
     }
 
     // implement if needed
-    public void remove()
+    public void reset()
     {
         throw new UnsupportedOperationException();
     }
