@@ -1,6 +1,8 @@
-package IteratorPattern.companies;
+package IteratorPattern.company;
 
-public class Hulu implements Movie{
+import IteratorPattern.movie.Movie;
+
+public class Hulu implements Movie {
 
     private String title;
     private String year;

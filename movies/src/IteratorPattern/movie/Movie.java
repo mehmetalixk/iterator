@@ -1,4 +1,4 @@
-package IteratorPattern.companies;
+package IteratorPattern.movie;
 
 public interface Movie {
     String getTitle();

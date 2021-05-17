@@ -1,6 +1,8 @@
-package IteratorPattern.companies;
+package IteratorPattern.company;
 
-public class Netflix implements Movie{
+import IteratorPattern.movie.Movie;
+
+public class Netflix implements Movie {
 
     private String title;
     private String year;

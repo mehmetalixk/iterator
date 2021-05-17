@@ -1,6 +1,8 @@
-package IteratorPattern.companies;
+package IteratorPattern.company;
 
-public class Amazon implements Movie{
+import IteratorPattern.movie.Movie;
+
+public class Amazon implements Movie {
 
     private String title;
     private String year;
@@ -24,4 +26,5 @@ public class Amazon implements Movie{
     public String getYear(){
         return year;
     }
+
 }
