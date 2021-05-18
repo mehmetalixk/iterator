@@ -25,4 +25,15 @@ public class Disney implements Movie {
     public String getYear(){
         return year;
     }
+    
+	@Override
+    public String getA(){
+        return country;
+    }
+    
+    @Override
+    public String getB(){
+        return rotten;
+    }
+    
 }

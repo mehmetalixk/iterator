@@ -26,5 +26,14 @@ public class Amazon implements Movie {
     public String getYear(){
         return year;
     }
-
+    
+	@Override
+    public String getA(){
+        return type;
+    }
+    
+    @Override
+    public String getB(){
+        return runtime;
+    }
 }

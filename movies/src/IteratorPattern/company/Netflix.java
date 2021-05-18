@@ -26,4 +26,14 @@ public class Netflix implements Movie {
     public String getYear(){
         return year;
     }
+    
+	@Override
+    public String getA(){
+        return age;
+    }
+    
+    @Override
+    public String getB(){
+        return language;
+    }
 }
