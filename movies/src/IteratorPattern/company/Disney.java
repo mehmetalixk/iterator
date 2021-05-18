@@ -26,14 +26,8 @@ public class Disney implements Movie {
         return year;
     }
     
-	@Override
-    public String getA(){
-        return country;
-    }
-    
     @Override
-    public String getB(){
-        return rotten;
+    public String toString() {
+        return String.format(title + "," + year+ "," +country+ "," +rotten );
     }
-    
 }

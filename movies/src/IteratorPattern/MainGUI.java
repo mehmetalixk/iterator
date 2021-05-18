@@ -196,14 +196,15 @@ public class MainGUI{
             	tmp.add(company);
             } 
             
-            tmp.add(movie.getTitle());
-            tmp.add(movie.getYear());
+            String[] t = movie.toString().split(",");
+            
+            tmp.add(t[0]);
+            tmp.add(t[1]);
             
             
             if (company.contains("!")) {
-
-                tmp.add(movie.getA());
-                tmp.add(movie.getB());
+                tmp.add(t[2]);
+                tmp.add(t[3]);
             } 
             
             

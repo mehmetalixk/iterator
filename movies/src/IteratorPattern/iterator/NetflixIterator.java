@@ -3,6 +3,7 @@ import IteratorPattern.Util;
 import IteratorPattern.movie.Movie;
 import IteratorPattern.movie.MovieIterator;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;
 

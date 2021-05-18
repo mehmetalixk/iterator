@@ -27,13 +27,8 @@ public class Amazon implements Movie {
         return year;
     }
     
-	@Override
-    public String getA(){
-        return type;
-    }
-    
     @Override
-    public String getB(){
-        return runtime;
+    public String toString() {
+        return String.format(title + "," + year+ "," +type+ "," +runtime );
     }
 }

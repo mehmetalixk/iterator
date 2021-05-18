@@ -27,6 +27,7 @@ public class Util {
         ArrayList<Movie> dataset = new ArrayList<>();
         CSVReader csvReader = new CSVReader(new FileReader(path));
         String[] row;
+        csvReader.readNext();
         while ((row = csvReader.readNext()) != null) {
             Netflix n = new Netflix(row[1], row[2], row[3], row[4]);
             dataset.add(n);
@@ -50,6 +51,7 @@ public class Util {
         Stack<Movie> dataset = new Stack<>();
         CSVReader csvReader = new CSVReader(new FileReader(path));
         String[] row;
+        csvReader.readNext();
         while ((row = csvReader.readNext()) != null)
             dataset.push(new Disney(row[1], row[2], row[3], row[4]));
 
