@@ -29,6 +29,6 @@ public class Amazon implements Movie {
     
     @Override
     public String toString() {
-        return String.format(title + "," + year+ "," +type+ "," +runtime );
+        return title + "<" + year+ "<" +type+ "<" +runtime;
     }
 }

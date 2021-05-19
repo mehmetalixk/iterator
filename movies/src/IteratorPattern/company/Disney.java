@@ -28,6 +28,6 @@ public class Disney implements Movie {
     
     @Override
     public String toString() {
-        return String.format(title + "," + year+ "," +country+ "," +rotten );
+        return title + "<" + year+ "<" +country+ "<" +rotten;
     }
 }

@@ -29,6 +29,6 @@ public class Netflix implements Movie {
 
     @Override
     public String toString() {
-        return String.format(title + "," + year+ "," +age+ "," +language );
+        return title + "<" + year + "<" + age + "<" + language;
     }
 }

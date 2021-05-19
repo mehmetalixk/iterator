@@ -4,7 +4,6 @@ import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Iterator;
 
 import javax.swing.DefaultListSelectionModel;
@@ -14,7 +13,6 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
-import IteratorPattern.company.*;
 import IteratorPattern.iterator.*;
 import IteratorPattern.movie.Movie;
 
@@ -91,7 +89,7 @@ public class MainGUI{
 		
 		f.setSize(700, 400);
 		f.setVisible(true);
-		
+		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 
 		GetIterator(4);
@@ -164,7 +162,7 @@ public class MainGUI{
 		}
 		 
 
-		 String[] columnNames = (String[]) clm.toArray();
+		 String[] columnNames = clm.toArray(new String[4]);
 
 			Object[][] l = arrayListToArray(rt);
 			
@@ -196,15 +194,35 @@ public class MainGUI{
             	tmp.add(company);
             } 
             
-            String[] t = movie.toString().split(",");
-            
-            tmp.add(t[0]);
-            tmp.add(t[1]);
+            String[] t = movie.toString().split("<");
+
+        	if (t[0].equals(""))
+            	tmp.add("-");
+        	else
+        		tmp.add(t[0]);
+        	
+        	if (t[1].equals(""))
+            	tmp.add("-");
+        	else
+        		tmp.add(t[1]);
             
             
             if (company.contains("!")) {
-                tmp.add(t[2]);
-                tmp.add(t[3]);
+                if (t.length > 2) {
+                	if (t[2].equals(""))
+                    	tmp.add("-");
+                	else
+                		tmp.add(t[2]);
+                    if (t.length >3 ) {
+                    	if (t[3].equals(""))
+                        	tmp.add("-");
+                    	else
+                    	tmp.add(t[3]);
+                    }
+                    else
+                    	tmp.add("-");
+                }else
+                	tmp.add("-");
             } 
             
             

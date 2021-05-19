@@ -28,6 +28,6 @@ public class Hulu implements Movie {
 
     @Override
     public String toString() {
-        return String.format(title + "," + year+ "," +imdb+ "," +language );
+        return title + "<" + year+ "<" +imdb+ "<" +language;
     }
 }
