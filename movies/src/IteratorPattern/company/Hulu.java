@@ -25,4 +25,9 @@ public class Hulu implements Movie {
     public String getYear(){
         return year;
     }
+
+    @Override
+    public String toString() {
+        return title + "<" + year+ "<" +imdb+ "<" +language;
+    }
 }
